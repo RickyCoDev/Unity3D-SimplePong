@@ -10,20 +10,26 @@ public class Ball : MonoBehaviour {
     [SerializeField] float speed = 2f;
 
     float startDir = 1;
-
+    GameManager gm;
     void Start()
     {
+        gm = References.gameManager;
         body = GetComponent<Rigidbody2D>();
         myTranform = transform;
         body.velocity = new Vector2(startDir* speed, startDir*speed);
-        References.gameManager.Ev_BlueScored += ResetBallPos;
-        References.gameManager.Ev_RedScored += ResetBallPos;
+
+        gm.Ev_BlueScored += ResetBallPos;
+        gm.Ev_RedScored += ResetBallPos;
+        gm.Ev_BallReset += RestartBall;
+        gm.Ev_Win += Kill;
     }
 
     void OnDisable()
     {
-        References.gameManager.Ev_BlueScored -= ResetBallPos;
-        References.gameManager.Ev_RedScored -= ResetBallPos;
+        gm.Ev_BlueScored -= ResetBallPos;
+        gm.Ev_RedScored -= ResetBallPos;
+        gm.Ev_BallReset -= RestartBall;
+        gm.Ev_Win -= Kill;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -32,6 +38,11 @@ public class Ball : MonoBehaviour {
         body.velocity = vel;
     }
 
+    void RestartBall()
+    {
+        myTranform.position = new Vector3(0, 0, 0);
+        body.velocity = new Vector2(startDir * speed, startDir * speed);
+    }
 
     public void ResetBallPos()
     {
@@ -42,5 +53,10 @@ public class Ball : MonoBehaviour {
     {
         yield return new WaitForSeconds(1f);
         myTranform.position = new Vector3(0, 0, 0);
+    }
+
+    void Kill(string s)
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(References))]
 public class GameManager : MonoBehaviour {
 
-    int BlueScore=0;
-    int RedScore=0;
+    int BlueScore = 0;
+    int RedScore = 0;
 
-    [SerializeField] const int MaxScore = 5;
+    public const int MaxScore = 5;
 
     public delegate void ScoreEventHandler();
     public delegate void WinHandler(string msg);
@@ -17,13 +18,14 @@ public class GameManager : MonoBehaviour {
 
     public event WinHandler Ev_Win;
 
+    public event ScoreEventHandler Ev_BallReset;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         Ev_BlueScored += BlueScored;
         Ev_RedScored += RedScored;
-	}
+    }
 
     void OnDisable()
     {
@@ -48,10 +50,10 @@ public class GameManager : MonoBehaviour {
 
     void CheckForWinner()
     {
-        if (BlueScore > MaxScore)
+        if (BlueScore >= MaxScore)
             Cast_Win("blue");
-        if (RedScore > MaxScore)
-            Cast_Win("red"); 
+        if (RedScore >= MaxScore)
+            Cast_Win("red");
     }
 
     public void Cast_Win(string msg)
@@ -76,5 +78,25 @@ public class GameManager : MonoBehaviour {
             Ev_BlueScored();
         else
             Debug.LogError("No ev redScored");
+    }
+
+    public void Cast_BallReset()
+    {
+        if (Ev_BallReset != null)
+            Ev_BallReset();
+        else Debug.LogError("no ev Ballreset");
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            Cast_BallReset();
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Realoading level");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

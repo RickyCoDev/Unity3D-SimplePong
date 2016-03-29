@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     bool CanGoUp = true;
     bool CanGoDown = true;
 
+    bool GetInput = true;
+
     const string TopBorderTag = "BTop";
     const string DownBorderTag = "BDown";
 
@@ -27,6 +29,12 @@ public class Player : MonoBehaviour {
     {
         body = GetComponent<Rigidbody2D>();
         myTransform = transform;
+        References.gameManager.Ev_Win += ToggleInput;
+    }
+
+    void OnDisable()
+    {
+        References.gameManager.Ev_Win -= ToggleInput;
     }
 
     void InputHandler()
@@ -83,7 +91,12 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
+        if(GetInput)
         InputHandler();
 	}
+
+    void ToggleInput(string s)
+    {
+        GetInput = false;
+    }
 }
