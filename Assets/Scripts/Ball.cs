@@ -9,12 +9,21 @@ public class Ball : MonoBehaviour {
 
     [SerializeField] float speed = 2f;
 
+    float startDir = 1;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         myTranform = transform;
+        body.velocity = new Vector2(startDir* speed, startDir*speed);
+        References.gameManager.Ev_BlueScored += ResetBallPos;
+        References.gameManager.Ev_RedScored += ResetBallPos;
+    }
 
-        body.velocity = new Vector2(-speed, -speed);
+    void OnDisable()
+    {
+        References.gameManager.Ev_BlueScored -= ResetBallPos;
+        References.gameManager.Ev_RedScored -= ResetBallPos;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -23,4 +32,15 @@ public class Ball : MonoBehaviour {
         body.velocity = vel;
     }
 
+
+    public void ResetBallPos()
+    {
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(1f);
+        myTranform.position = new Vector3(0, 0, 0);
+    }
 }

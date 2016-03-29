@@ -10,10 +10,6 @@ TagManager:
   - Enemy
   - Scenery
   - Damager
-  - RedGoal
-  - BlueGoal
-  - BTop
-  - BDown
   - Ball
   layers:
   - Default
