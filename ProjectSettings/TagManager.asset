@@ -12,6 +12,8 @@ TagManager:
   - Damager
   - RedGoal
   - BlueGoal
+  - BTop
+  - BDown
   layers:
   - Default
   - TransparentFX
