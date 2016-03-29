@@ -95,7 +95,7 @@ GameObject:
   - 224: {fileID: 17798340}
   - 222: {fileID: 17798342}
   - 114: {fileID: 17798341}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: BlueScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,6 +485,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 120520, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
   m_IsPrefabParent: 0
@@ -684,7 +688,7 @@ GameObject:
   - 224: {fileID: 1069900006}
   - 222: {fileID: 1069900008}
   - 114: {fileID: 1069900007}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: RedScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,6 +853,10 @@ Prefab:
     - target: {fileID: 179296, guid: 07760d3b6abbc324b88175945974f21f, type: 2}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179296, guid: 07760d3b6abbc324b88175945974f21f, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07760d3b6abbc324b88175945974f21f, type: 2}
@@ -1080,7 +1088,7 @@ GameObject:
   - 223: {fileID: 1761513294}
   - 114: {fileID: 1761513293}
   - 114: {fileID: 1761513292}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
