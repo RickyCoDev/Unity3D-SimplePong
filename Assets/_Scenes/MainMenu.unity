@@ -591,6 +591,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6133358, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
   m_IsPrefabParent: 0
@@ -1350,7 +1354,6 @@ GameObject:
   - 223: {fileID: 1761513294}
   - 114: {fileID: 1761513293}
   - 114: {fileID: 1761513292}
-  - 114: {fileID: 1761513296}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1434,22 +1437,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1761513296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1761513291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7eaf6a9c41b94949850f320bfe8777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RedScore: {fileID: 1069900007}
-  BlueScore: {fileID: 17798341}
-  ScoreText: {fileID: 0}
-  TutorialWrap: {fileID: 0}
-  ButtonsWrap: {fileID: 0}
 --- !u!1 &1788761212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1559,10 @@ Prefab:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11407430, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133358, guid: 3e61e8d63589594479b407414b1370f5, type: 2}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
