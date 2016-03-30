@@ -39,7 +39,11 @@ public class Player : MonoBehaviour {
 
     void InputHandler()
     {
-        float y = Input.GetAxis(AxisButtons) * speed;
+        float y = Input.GetAxis(AxisButtons);
+        if (y != 0)
+            y = (y > 0) ? 1 : -1;
+        y *= speed;
+        //Debug.Log(y);
         //calculate direction up/down
         if (y != 0) // if is not moving don't changfe direction
             dir = (y > 0) ? Direction.up : Direction.down;

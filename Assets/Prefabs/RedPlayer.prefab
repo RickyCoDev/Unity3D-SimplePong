@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AxisButtons: VerticalRED
-  speed: 8
+  speed: 4
   BorderMask:
     serializedVersion: 2
     m_Bits: 32768
